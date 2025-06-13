@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "mcp-video-analysis": {
+      "command": "python",
+      "args": ["/Users/michaelbaker/mcp/video/mcp-video-server/mcp_video_server.py"],
+      "env": {
+        "PYTHONPATH": "/Users/michaelbaker/mcp/video/mcp-video-server",
+        "OLLAMA_HOST": "http://localhost:11434",
+        "VIDEO_DATA_PATH": "/Users/michaelbaker/mcp/video/mcp-video-server/video_data"
+      }
+    }
+  }
+}
