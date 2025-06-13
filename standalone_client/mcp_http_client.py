@@ -350,13 +350,14 @@ class MCPHttpClient:
 Connected to: `{self.server_url}`
 Chat LLM: `{self.chat_llm_model}`
 
-Ask me anything about your videos! Try:
-- "show me the latest videos"
-- "what happened at the shed today?"
-- "find videos with cars"
-- "summarize video vid_abc123"
+Ask me anything about your videos! I can help with:
+- **Transcript analysis** - "What was said in the video?"
+- **Visual analysis** - "Describe what you can see"
+- **Location queries** - "What happened at the shed today?"
+- **Content search** - "Find videos with cars"
+- **Video summaries** - "Summarize video vid_abc123"
 
-Type **help** for more commands or **exit** to quit.
+Type **help** for comprehensive query examples or **exit** to quit.
         """
         console.print(Panel(Markdown(welcome_text), title="Welcome", border_style="green"))
     
@@ -371,21 +372,50 @@ Type **help** for more commands or **exit** to quit.
         
         if command == 'help':
             help_text = """
-## 📚 Commands
+## 📚 Video Analysis Commands
 
-### Video Queries
-- "show latest videos" - List recent videos  
-- "videos from [location] [time]" - Query by location/time
-- "find videos with [content]" - Search content
-- "summarize video [video_id]" - Get video summary
-- "what happens at [time] in [video_id]" - Analyze moment
+### 🎤 For Transcript Content (What Was Said)
+- **"What was said in the video?"** - Get transcript details
+- **"Give me the transcript summary"** - Focus on spoken content  
+- **"What did they talk about in [video_id]?"** - Transcript from specific video
+- **"Find videos mentioning [topic]"** - Search through all transcripts
+- **"What was said at 2 minutes into the video?"** - Transcript at specific time
 
-### System Commands  
-- **status** - Check system status
-- **tools** - List available tools
-- **clear** - Clear screen
-- **help** - Show this help
-- **exit** - Exit chat
+### 🎬 For Visual Analysis (What Was Shown)
+- **"Summarize the video [video_id]"** - AI visual summary from frames
+- **"What cars were shown in the video?"** - Visual content description
+- **"Describe what you can see in the video"** - Frame analysis focus
+- **"What's happening visually at 3 minutes?"** - Visual content at timestamp
+
+### 🔍 For Combined Analysis
+- **"Tell me everything about [video_id]"** - Both transcript + visual
+- **"What happened in this race video?"** - Complete story
+- **"Show me the latest videos"** - List recent videos with summaries
+
+### 📍 Location & Time Queries  
+- **"videos from [location] [time]"** - Filter by location/date
+- **"what happened at the shed today?"** - Location + time specific
+- **"show videos from last week"** - Time-based filtering
+- **"find videos from the driveway yesterday"** - Combined filters
+
+### ⏱️ Moment Analysis
+- **"what happens at [time] in [video_id]"** - Specific timestamp analysis
+- **"analyze the conversation at 120 seconds"** - Audio + visual at time
+- **"what was happening at 2:30?"** - Moment breakdown
+
+### 🔧 System Commands  
+- **status** - Check system status and video count
+- **tools** - List all available MCP tools
+- **clear** - Clear the chat screen
+- **help** - Show this comprehensive help
+- **exit** - Exit the chat client
+
+### 💡 Pro Tips
+- The system keeps **complete transcripts** (1000+ words per video)
+- **Visual analysis** comes from AI examining video frames  
+- **Search** works across both transcripts and visual descriptions
+- Use **specific video IDs** for targeted analysis
+- **Recent/latest** queries show recently processed videos
             """
             return help_text.strip()
         
