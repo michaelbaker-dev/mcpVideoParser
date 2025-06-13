@@ -22,7 +22,7 @@ from src.utils.logging import setup_logging, get_logger
 
 # Server metadata
 SERVER_NAME = "mcp-video-analysis"
-SERVER_VERSION = "0.1.0"
+SERVER_VERSION = "0.1.1"
 
 
 def check_and_kill_existing_server(port: int, script_name: str = "mcp_video_server.py"):

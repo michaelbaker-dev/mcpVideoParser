@@ -341,6 +341,6 @@ python server.py
 ---
 
 **Last Updated**: December 2024
-**Version**: 0.1.0
+**Version**: 0.1.1
 
 Remember to keep this document updated as the project evolves!

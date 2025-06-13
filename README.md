@@ -232,6 +232,6 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Version**: 0.1.0  
+**Version**: 0.1.1  
 **Author**: Michael Baker  
 **Status**: Beta - Breaking changes possible
