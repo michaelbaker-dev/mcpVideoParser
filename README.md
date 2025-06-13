@@ -105,6 +105,43 @@ The server exposes these MCP tools:
 - `get_video_stats` - Get system statistics
 - `get_video_guide` - Get usage instructions
 
+## 🛠️ Utility Scripts
+
+### Video Cleanup
+Clean all videos from the system and reset to a fresh state:
+
+```bash
+# Dry run to see what would be deleted
+python clean_videos.py --dry-run
+
+# Clean processed files and database (keeps originals)
+python clean_videos.py
+
+# Clean everything including original video files
+python clean_videos.py --clean-originals
+
+# Skip confirmation and backup
+python clean_videos.py --yes --no-backup
+```
+
+This script will:
+- Remove all video entries from the database
+- Delete all processed frames and transcripts  
+- Delete all videos from the location-based structure
+- Optionally delete original video files
+- Create a backup of the database before cleaning (unless `--no-backup`)
+
+### Video Processing
+Process individual videos:
+
+```bash
+# Process a video with automatic location detection
+python process_new_video.py /path/to/video.mp4
+
+# Process with specific location
+python process_new_video.py /path/to/video.mp4 --location garage
+```
+
 ## 📖 Documentation
 
 - [API Reference](docs/API.md) - Detailed MCP tool documentation
