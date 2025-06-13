@@ -36,8 +36,8 @@ async def process_video(video_path: str, location: str = None):
         print(f"- Frames analyzed: {result.frames_analyzed}")
         print(f"- Processing time: {result.processing_time:.2f}s")
         
-        if result.summary:
-            print(f"\nSummary: {result.summary}")
+        if result.transcript:
+            print(f"\nTranscript preview: {result.transcript[:200]}...")
             
         return metadata.video_id
         
