@@ -508,7 +508,8 @@ class StorageManager:
         start_time: Optional[datetime] = None,
         end_time: Optional[datetime] = None,
         content_query: Optional[str] = None,
-        limit: int = 50
+        limit: int = 50,
+        time_field: str = "recording_timestamp"
     ) -> List[VideoMetadata]:
         """Query videos by location and time range.
         
@@ -518,6 +519,7 @@ class StorageManager:
             end_time: End of time range
             content_query: Optional content search query
             limit: Maximum results
+            time_field: Time field to filter by ("recording_timestamp" or "created_at")
             
         Returns:
             List of VideoMetadata objects matching criteria
@@ -544,11 +546,11 @@ class StorageManager:
             
             # Time range filter
             if start_time:
-                conditions.append("v.recording_timestamp >= ?")
+                conditions.append(f"v.{time_field} >= ?")
                 params.append(start_time.isoformat())
             
             if end_time:
-                conditions.append("v.recording_timestamp <= ?")
+                conditions.append(f"v.{time_field} <= ?")
                 params.append(end_time.isoformat())
             
             # Combine query

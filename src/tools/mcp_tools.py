@@ -223,13 +223,17 @@ class VideoTools:
                     start_time, end_time = DateParser.parse_date_query(time_query)
                     self.logger.info(f"Parsed time query '{time_query}' to {start_time} - {end_time}")
                 
+                # For "recent" queries, use created_at to show recently added videos
+                time_field = "created_at" if time_query and time_query.lower() in ['recent', 'recently', 'latest'] else "recording_timestamp"
+                
                 # Query videos
                 videos = self.storage.query_videos_by_location_and_time(
                     location=location,
                     start_time=start_time,
                     end_time=end_time,
                     content_query=content_query,
-                    limit=limit
+                    limit=limit,
+                    time_field=time_field
                 )
                 
                 if not videos:

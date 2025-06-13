@@ -159,6 +159,11 @@ class DateParser:
             except:
                 pass
         
+        # Recent videos (last week)
+        if query_lower in ['recent', 'recently', 'latest']:
+            start = reference_date - timedelta(days=7)
+            return start, reference_date
+        
         # Default: if we can't parse, return last 24 hours
         start = reference_date - timedelta(days=1)
         return start, reference_date
